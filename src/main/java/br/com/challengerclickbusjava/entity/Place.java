@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -14,16 +15,16 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @jakarta.validation.constraints.NotNull
+    @NotEmpty(message = "Name cannot be null")
     private String name;
 
-    @jakarta.validation.constraints.NotNull
+    @NotEmpty(message = "Slug cannot be null")
     private String slug;
 
-    @jakarta.validation.constraints.NotNull
+    @NotEmpty(message = "City cannot be null")
     private String city;
 
-    @NotNull
+    @NotEmpty(message = "State cannot be null")
     private String state;
 
     private LocalDateTime createdAt;

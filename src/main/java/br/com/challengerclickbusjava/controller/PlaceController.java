@@ -26,7 +26,7 @@ public class PlaceController {
     }
 
     @PostMapping
-    public ResponseEntity<PlaceDTO> create(@RequestBody @Valid PlaceDTO dto) {
+    public ResponseEntity<PlaceDTO> create(@Valid @RequestBody PlaceDTO dto) {
         return new ResponseEntity<PlaceDTO>(service.save(dto.buildPlace()).convertToDTO(), HttpStatus.CREATED);
     }
 
